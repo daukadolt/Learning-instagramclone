@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+  root "users#index"
   #match "/about", to: "static_pages#about", via: :get
-  get "/about", to: "static_pages#about"
-  get "/signup", to: "users#new"
+  get "about" => "static_pages#about"
+  get "signup" => "users#new"
 
   resources :users
 end
