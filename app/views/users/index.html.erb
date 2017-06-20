@@ -2,9 +2,9 @@
   <% @users.each do |user| %>
   <% avatarurl = ""
     if user.avatar_file_name.nil?
-      avatarurl = "http://via.placeholder.com/60x60"
+      avatarurl = "http://via.placeholder.com/100x100"
     else
-      avatarurl = user.avatar.url(:thumbnnail)
+      avatarurl = user.avatar.url(:thumb)
     end
 
    %>

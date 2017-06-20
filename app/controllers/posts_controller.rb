@@ -34,6 +34,6 @@ class PostsController < ApplicationController
 
 
   def check_signed_in
-    redirect_to signin_path if signed_in?
+    redirect_to signin_path if not signed_in?
   end
 end

@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   post "/signin", to: "sessions#create"
   #get "/signout", to "session#destroy"
   delete "/signout", to: "sessions#destroy"
+  delete "/relationships", to: "relationships#destroy"
 
   resources :users
   resources :posts
   resources :sessions, only: [:new, :destroy, :create]
+  resources :relationships, only: [:create]
 end
