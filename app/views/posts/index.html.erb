@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
 
     <%= image_tag post.image(:large) %>
-    <%= post.description %>
+    <p> <%= post.description %> </p>
     <%= post.user_id %>
 
   <% end %>

@@ -1,8 +1,15 @@
 <ul>
   <% @users.each do |user| %>
+  <% avatarurl = ""
+    if user.avatar_file_name.nil?
+      avatarurl = "http://via.placeholder.com/60x60"
+    else
+      avatarurl = user.avatar.url(:thumbnnail)
+    end
 
+   %>
   <li class="list-group-item">
-    <%= image_tag "http://via.placeholder.com/60x60", class: "img-circle" %>
+    <%= image_tag avatarurl, class: "img-circle" %>
     <%= link_to user.login, user %> |
     <%= link_to "Edit", edit_user_path(user)%> |
     <%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "R u sure?"} %>
