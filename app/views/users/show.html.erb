@@ -1,5 +1,23 @@
-<%= @user.login %>
-  <%= image_tag @user.avatar.url(:medium) %>
-<div class="follow_status">
-  <%= render "partials/follow_status" %>
+
+
+<div class="row">
+
+  <div class="container">
+    <h3> <%= @user.login %> </h3>
+    <%= image_tag @user.avatar.url(:thumb), class:"img-circle" %>
+    <span class="follow_status">
+      <%= render "partials/follow_status" %>
+    </span>
+
+    <div class="row">
+
+    <% posts = @user.posts %>
+    <% posts.each do |post| %>
+      <div class="col-md-4">
+        <%= image_tag post.image(:large) %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
 </div>
