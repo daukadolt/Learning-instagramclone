@@ -73,3 +73,25 @@ body {
   }
 
 }
+
+
+.post {
+  .whatevs {
+    width: 100%;
+  }
+
+  .title {
+    padding: 10px 10px;
+    color: black;
+  }
+
+  a:link {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .description {
+    padding-left: 12px;
+    padding-top: 5px;
+  }
+}

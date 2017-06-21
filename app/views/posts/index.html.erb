@@ -7,24 +7,23 @@
   }
 </style>
 
-<div class="col-md-6 col-md-offset-3 text-center">
+<div class="col-md-6 col-md-offset-3">
   <% @posts.reverse_each do |post| %>
     <% if not post.user.avatar.url == "/images/original/missing.png" %>
       <% dolt = post.user.avatar.url(:thumb) %>
     <% else %>
-      <% dolt = "http://via.placeholder.com/100x100" %>
+      <% dolt = "http://via.placeholder.com/30x30" %>
     <% end %>
       <div class="post">
-        <div class="row">
-          <%= link_to (image_tag dolt, height: '35', class: 'img-circle'), users_path+"/"+post.user.id.to_s %>
-          <b><%= post.user.login %></b>
+        <div class="title">
+          <%= link_to "#{image_tag dolt, height: '30', class: 'img-circle'} #{post.user.login}".html_safe, users_path+"/"+post.user.id.to_s %>
         </div>
-        <div class="row">
-          <%= image_tag post.image(:large) %>
+        <div class="image">
+          <%= image_tag post.image.url, class: 'whatevs'  %>
         </div>
 
-        <div class="row">
-          <p> <%= post.description %> </p>
+        <div class="description">
+          <p> <b><%= link_to post.user.login,users_path+"/"+post.user.id.to_s  %></b> <%= post.description %> </p>
         </div>
       </div>
       <!-- <%= post.user_id %> -->
