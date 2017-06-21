@@ -4,6 +4,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
+      #@posts = []
+      # followeds = Relationship.where(follower_id: current_user)
+      # followeds.each do |f|
+      #   @posts.append(Post.find_by_user_id(f.followed_id))
+        #end
   end
 
   def show

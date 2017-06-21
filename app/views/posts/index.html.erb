@@ -16,7 +16,7 @@
     <% end %>
       <div class="post">
         <div class="row">
-          <%= image_tag dolt, height: '35', class: 'img-circle' %>
+          <%= link_to (image_tag dolt, height: '35', class: 'img-circle'), users_path+"/"+post.user.id.to_s %>
           <b><%= post.user.login %></b>
         </div>
         <div class="row">
