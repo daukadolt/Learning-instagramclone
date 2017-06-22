@@ -7,9 +7,6 @@ class PostsController < ApplicationController
     followeds = Relationship.where(follower_id: current_user)
 
     @posts = Post.all
-    @myarr = []
-
-
   end
 
   def show
