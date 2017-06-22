@@ -1,23 +1,31 @@
+<div class="profile_page">
+  <div class="row">
 
+    <div class="container">
+      <h3> <%= @user.login %> </h3>
+      <% if not @user.avatar.url == "/images/original/missing.png" %>
+        <% dolt = @user.avatar %>
+      <% else %>
+        <% dolt = "http://via.placeholder.com/152x152" %>
+      <% end %>
+      <%= image_tag dolt, class:"img-circle", height: '152' %>
+      <span class="follow_status">
+        <%= render "partials/follow_status" %>
+      </span>
 
-<div class="row">
+      <div class="posts">
+        <div class="row">
 
-  <div class="container">
-    <h3> <%= @user.login %> </h3>
-    <%= image_tag @user.avatar.url(:thumb), class:"img-circle" %>
-    <span class="follow_status">
-      <%= render "partials/follow_status" %>
-    </span>
-
-    <div class="row">
-
-    <% posts = @user.posts %>
-    <% posts.each do |post| %>
-      <div class="col-md-4">
-        <%= image_tag post.image(:large) %>
+        <% posts = @user.posts %>
+        <% posts.each do |post| %>
+          <div class="col-md-4">
+            <%= image_tag post.image(:large) %>
+          </div>
+        <% end %>
+        </div>
       </div>
-    <% end %>
     </div>
+
   </div>
 
 </div>

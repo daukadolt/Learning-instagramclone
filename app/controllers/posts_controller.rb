@@ -3,13 +3,13 @@ class PostsController < ApplicationController
   before_action :check_signed_in, except: :show
 
   def index
-    @posts = Post.all
 
-      #@posts = []
-      # followeds = Relationship.where(follower_id: current_user)
-      # followeds.each do |f|
-      #   @posts.append(Post.find_by_user_id(f.followed_id))
-        #end
+    followeds = Relationship.where(follower_id: current_user)
+
+    @posts = Post.all
+    @myarr = []
+
+
   end
 
   def show
