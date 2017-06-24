@@ -10,10 +10,8 @@
    %>
   <li class="list-group-item">
     <%= image_tag avatarurl, class: "img-circle" %>
-    <%= link_to user.login, user %> |
-    <%= link_to "Edit", edit_user_path(user)%> |
-    <%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "R u sure?"} %>
-    <button class="btn btn-primary follow">Follow</button>
+    <%= link_to user.login, user %>
+    <button class="btn btn-primary follow" onclick="alert('Ne rabotaet, clickay po loginu')">Follow</button>
   </li>
   <% end %>
 </ul>

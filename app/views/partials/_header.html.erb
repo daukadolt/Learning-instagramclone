@@ -13,7 +13,10 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to current_user.login, user_path(current_user) %></li>
+        <li><% if signed_in?  %>
+          <%= link_to current_user.login, user_path(current_user) %>
+          <% end %>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :posts
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationships, source: :followed_id
+  has_many :followed_users, through: :relationships, source: :followed
+
   has_many :reverse_relationships, foreign_key: "followed_id", dependent: :destroy, class_name: "relationships"
   has_many :followers, through: :reverse_relationships
 
@@ -34,6 +35,10 @@ class User < ApplicationRecord
 
   def following?(user)
       !self.relationships.find_by_followed_id(user).nil?
+  end
+
+  def feed
+    Post.where(user_id: [followed_user_ids, self.id])
   end
 
   private

@@ -4,9 +4,11 @@ class PostsController < ApplicationController
 
   def index
 
-    followeds = Relationship.where(follower_id: current_user)
 
-    @posts = Post.all
+
+    #@posts = Post.all
+
+    @posts = current_user.feed
   end
 
   def show
@@ -14,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(user_id: current_user)
   end
 
   def create

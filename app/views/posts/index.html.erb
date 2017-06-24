@@ -8,6 +8,11 @@
 </style>
 
 <div class="col-md-6 col-md-offset-3">
+  <% if @posts.first.nil? %>
+    <h1> No posts here. Try subscribing on the folks with posts </h1>
+    <br>
+    <h4>Go to <%= link_to "Users path to subscribe", users_path %> </h4>
+  <% else %>
   <% @posts.reverse_each do |post| %>
     <% if not post.user.avatar.url == "/images/original/missing.png" %>
       <% dolt = post.user.avatar.url(:thumb) %>
@@ -28,5 +33,6 @@
       </div>
       <!-- <%= post.user_id %> -->
 
+    <% end %>
   <% end %>
 </div>

@@ -1,3 +1,6 @@
+<% if not @user == current_user %>
+<h1> <%= "Ne ofigel?" %> </h1>
+<% else %>
 <% if @user.errors.any? %>
 <ul>
   <% @user.errors.full_messages.each do |m| %>
@@ -17,4 +20,5 @@
   <%= f.password_field :password %>
   <%= f.submit "Sign_up" %>
 
+<% end %>
 <% end %>
