@@ -1,5 +1,9 @@
-<% if not current_user.following?(params[:id]) %>
+<% if @myself %>
+<%= render "partials/editorpost" %>
+<% else %>
+<% if not current_user.following?(params[:id])  %>
   <%= render "partials/follow"  %>
 <% else %>
   <%= render "partials/unfollow" %>
+<% end %>
 <% end %>

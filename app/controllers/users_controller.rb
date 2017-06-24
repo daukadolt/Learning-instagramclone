@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @myself = User.find_by_id(params[:id]) == current_user
   end
 
 
