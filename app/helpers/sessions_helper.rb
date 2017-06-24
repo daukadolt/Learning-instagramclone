@@ -21,4 +21,8 @@ module SessionsHelper
 
   end
 
+  def signout
+    cookies.delete :remember_token if signed_in?
+  end
+
 end
